@@ -1,0 +1,3 @@
+sum of unmarked numbers: 841
+winning number: 14
+result: 11774

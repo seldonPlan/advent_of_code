@@ -1,0 +1,3 @@
+sum of unmarked numbers: 145
+winning number: 31
+result: 4495

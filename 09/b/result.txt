@@ -1,0 +1,3 @@
+total basins: 225
+top three highest basin sizes: [[108, 103, 101]]
+top three, multiplied: 1123524

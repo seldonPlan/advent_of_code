@@ -1,0 +1,3 @@
+oxygen rating: 3939
+co2 rating: 1762
+life support rating: 6940518

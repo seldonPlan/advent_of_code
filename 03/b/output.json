@@ -1,0 +1,22 @@
+[
+    {"item_count": 1000, "favor": "least", "ones": 521, "zeroes": 479, "search_key": 0},
+    {"item_count": 479, "favor": "least", "ones": 228, "zeroes": 251, "search_key": 1},
+    {"item_count": 228, "favor": "least", "ones": 106, "zeroes": 122, "search_key": 1},
+    {"item_count": 106, "favor": "least", "ones": 55, "zeroes": 51, "search_key": 0},
+    {"item_count": 51, "favor": "least", "ones": 23, "zeroes": 28, "search_key": 1},
+    {"item_count": 23, "favor": "least", "ones": 9, "zeroes": 14, "search_key": 1},
+    {"item_count": 9, "favor": "least", "ones": 2, "zeroes": 7, "search_key": 1},
+    {"item_count": 2, "favor": "least", "ones": 1, "zeroes": 1, "search_key": 0},
+    {"item_count": 1000, "favor": "most", "ones": 521, "zeroes": 479, "search_key": 1},
+    {"item_count": 521, "favor": "most", "ones": 278, "zeroes": 243, "search_key": 1},
+    {"item_count": 278, "favor": "most", "ones": 145, "zeroes": 133, "search_key": 1},
+    {"item_count": 145, "favor": "most", "ones": 73, "zeroes": 72, "search_key": 1},
+    {"item_count": 73, "favor": "most", "ones": 36, "zeroes": 37, "search_key": 0},
+    {"item_count": 37, "favor": "most", "ones": 20, "zeroes": 17, "search_key": 1},
+    {"item_count": 20, "favor": "most", "ones": 14, "zeroes": 6, "search_key": 1},
+    {"item_count": 14, "favor": "most", "ones": 6, "zeroes": 8, "search_key": 0},
+    {"item_count": 8, "favor": "most", "ones": 3, "zeroes": 5, "search_key": 0},
+    {"item_count": 5, "favor": "most", "ones": 2, "zeroes": 3, "search_key": 0},
+    {"item_count": 3, "favor": "most", "ones": 2, "zeroes": 1, "search_key": 1},
+    {"item_count": 2, "favor": "most", "ones": 1, "zeroes": 1, "search_key": 1}
+]

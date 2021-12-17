@@ -1,0 +1,3 @@
+gamma: 3135
+epsilon: 960
+power consumption: 3009600
