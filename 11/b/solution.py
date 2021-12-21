@@ -120,17 +120,21 @@ def record_state(size: int = 10):
     output.append(tuple(state))
 
 
-fired_count: int = 0
+iteration: int = 0
 record_state()
-for _i in range(100):
+while True:
+    iteration += 1
     do_step()
-    fired_count += len([o for o in octopi.values() if o.value == 0])
+    fired_count = len([o for o in octopi.values() if o.value == 0])
     record_state()
+    if fired_count == len(octopi):
+        break
 
-print(fired_count)
+print(iteration)
+print(print_state(output[len(output) - 1]))
 
 with open("result.txt", mode="wt") as result:
-    result.write(f"total fired after 100 iterations: {fired_count}\n")
+    result.write(f"iteration all fired at once: {iteration}\n")
 
 with open("output.txt", mode="wt") as outfile:
     for idx, state in enumerate(output):
