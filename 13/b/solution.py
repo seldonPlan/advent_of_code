@@ -62,14 +62,37 @@ def do_fold(input: List[List[bool]], direction: str, fold: int):
     return rv
 
 
-points_array = do_fold(populate_points(input[0]), input[1][0][0], input[1][0][1])
+points_array: List[List[bool]] = populate_points(input[0])
+for fold in input[1]:
+    points_array = do_fold(points_array, fold[0], fold[1])
 
-print(sum([len([s for s in r if s]) for r in points_array]))
+# for row in points_array:
+#     print(" ".join(["*" if i else " " for i in row]))
+
+transposed: List[List[bool]] = []
+for _r in range(len(points_array[0])):
+    transposed.append([False] * len(points_array))
+
+for x in range(len(points_array)):
+    for y in range(len(points_array[0])):
+        transposed[y][x] = points_array[x][y]
+
+for row in transposed:
+    print(" ".join(["*" if i else " " for i in row]))
+
 
 with open("result.txt", mode="wt") as result:
-    result.write(f"total points after first fold: {sum([len([s for s in r if s]) for r in points_array])}\n")
+    for row in transposed:
+        result.write(" ".join(["*" if i else " " for i in row]))
+        result.write("\n")
 
 with open("output.txt", mode="wt") as outfile:
-    for r in points_array:
-        outfile.write("".join(["*" if i else " " for i in r]))
-        outfile.write(str("\n"))
+    for row in points_array:
+        outfile.write(" ".join(["*" if i else " " for i in row]))
+        outfile.write("\n")
+
+    outfile.write("\n")
+
+    for row in transposed:
+        outfile.write(" ".join(["*" if i else " " for i in row]))
+        outfile.write("\n")
