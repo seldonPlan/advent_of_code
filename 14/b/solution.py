@@ -1,5 +1,4 @@
-import json
-from typing import Dict, List, Tuple
+from typing import Dict, Tuple
 
 
 def parse_input(filename: str = "input.txt") -> Tuple[str, Dict[Tuple[str, ...], str]]:
@@ -17,50 +16,44 @@ def parse_input(filename: str = "input.txt") -> Tuple[str, Dict[Tuple[str, ...],
 
 
 input, rules = parse_input()
-log: List[str] = [input]
+counts: Dict[Tuple[str, ...], int] = {}
 
 
-def process_step(input: str):
-    pairs: List[Tuple[str, ...]] = []
-    for i in range(1, len(input)):
-        pairs.append((input[i - 1], input[i]))
-
-    next: List[Tuple[str, ...]] = []
-    for pair in pairs:
-        if pair in rules:
-            next.append((pair[0], rules[pair], pair[1]))
-        else:
-            next.append(pair)
-
-    rv: str = next[0][0]
-    for n in next:
-        rv += "".join(n[1:])
-
-    return rv
+def update_counts(d: Dict[Tuple[str, ...], int], key: Tuple[str, ...], count: int):
+    try:
+        d[key] += count
+    except KeyError:
+        d[key] = count
 
 
-for i in range(40):
-    print("iter", i)
-    input = process_step(input)
-    # log.append(input)
+# init counts with all possible pairs, with value of zero
+for pair, _s in rules.items():
+    update_counts(counts, pair, 0)
 
-char_counts: Dict[str, int] = {}
-for c in input:
-    if c in char_counts:
-        char_counts[c] += 1
-    else:
-        char_counts[c] = 1
+# populate with counts of initial strings
+for i, j in zip(input[:-1], input[1:]):
+    update_counts(counts, (i, j), 1)
 
-sorted_result = sorted(tuple(char_counts.items()), key=lambda t: t[1], reverse=True)
-print(sorted_result[0][1] - sorted_result[len(sorted_result) - 1][1])
+for _i in range(40):
+    # a tmp dict is required here because we cant update the counts object until
+    # a complete pass through all of its keys. The iteration zeroes counts for
+    # each pair as its goes, so if one of the child pairs are updated and happen
+    # to match a pair to be yet updated in counts, there will be an inconsistent
+    # state
+    tmp: Dict[Tuple[str, ...], int] = {}
+    for pair, count in counts.items():
+        if count == 0:
+            continue
 
-with open("result.txt", mode="wt") as result:
-    result.write("final counts:\n")
-    result.write(json.dumps(char_counts, indent=4))
-    result.write("\n\n")
-    result.write(f"highest element: {repr(sorted_result[0])}\n")
-    result.write(f"lowest element: {repr(sorted_result[len(sorted_result) - 1])}\n")
-    result.write(f"difference: {sorted_result[0][1] - sorted_result[len(sorted_result) - 1][1]}\n")
+        # decrement parent pair
+        update_counts(counts, pair, count * -1)
 
-with open("output.txt", mode="wt") as outfile:
-    outfile.write("")
+        # increment child pair
+        update_counts(tmp, (pair[0], rules[pair]), count)
+        update_counts(tmp, (rules[pair], pair[1]), count)
+
+    for pair, count in tmp.items():
+        update_counts(counts, pair, count)
+
+    print({"".join(p): c for p, c in counts.items() if c > 0})
+    print("-" * 80)
