@@ -1,0 +1,17 @@
+final counts:
+{
+    "K": 1913,
+    "H": 1102,
+    "C": 1233,
+    "P": 1078,
+    "O": 3587,
+    "V": 1942,
+    "F": 3037,
+    "N": 2343,
+    "S": 1670,
+    "B": 1552
+}
+
+highest element: ('O', 3587)
+lowest element: ('P', 1078)
+difference: 2509
