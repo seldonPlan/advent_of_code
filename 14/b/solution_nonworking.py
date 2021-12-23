@@ -129,10 +129,3 @@ def process_step(polymer: str, thread_count: int = 4, step_limit: int = 10):
 
 counts = process_step(input, 20, 1)
 print(counts)
-
-
-with open("result.txt", mode="wt") as result:
-    result.write("")
-
-with open("output.txt", mode="wt") as outfile:
-    outfile.write("")
