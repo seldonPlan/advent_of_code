@@ -29,8 +29,8 @@ class Point(object):
         return self._value
 
     @property
-    def weight(self) -> float:
-        return self._weight
+    def weight(self) -> int:
+        return sys.maxsize if self._weight == math.inf else int(self._weight)
 
     @weight.setter
     def weight(self, value: int):
@@ -115,8 +115,7 @@ def evaluate_weights():
 
     while True:
         try:
-            _w = min([p.weight for p in points.values() if p not in path])
-            min_weight = int(_w) if _w != math.inf else sys.maxsize
+            min_weight = min([p.weight for p in points.values() if p not in path])
         except ValueError:
             break
 
