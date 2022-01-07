@@ -1,5 +1,5 @@
 from io import StringIO
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional, Tuple
 
 
 def parse_input(filename: str = "input.txt") -> List[Any]:
@@ -23,6 +23,29 @@ def bin_to_int(bin_str: str) -> int:
     return int(bin_str, base=2)
 
 
+# | type ID   | bin | operation    | description
+# +-----------+-----+--------------+------------------------------------------------------------
+# | type ID 0 | 000 | SUM          | at least one value
+# | type ID 1 | 001 | PRODUCT      | at least one value (single value returns value)
+# | type ID 2 | 010 | MINIMUM      | at least one value
+# | type ID 3 | 011 | MAXIMUM      | at least one value
+# | type ID 5 | 101 | GREATER THAN | exactly two values, 1 if first GREATER THAN second else 0
+# | type ID 6 | 110 | LESS THAN    | exactly two values, 1 if first LESS THAN second else 0
+# | type ID 7 | 111 | EQUAL TO     | exactly two values, 1 if first EQUAL TO second else 0
+# | type ID 4 | 100 | LITERAL      | decoded values are joined to make a single value
+
+
+TYPE_CODES = {
+    "000": "SUM",
+    "001": "PROD",
+    "010": "MIN",
+    "011": "MAX",
+    "101": "GT",
+    "110": "LT",
+    "111": "EQ",
+    "100": "LITERAL",
+}
+
 LITERAL_TYPE_CODE: str = "100"
 OPERATOR_LENGTH_TYPE: str = "0"
 OPERATOR_COUNT_TYPE: str = "1"
@@ -43,6 +66,9 @@ def parse_literal(stream: StringIO) -> List[str]:
 
 def parse_packet(stream: StringIO):
     rv: Dict[Any, Any] = {}
+    rv["header"] = {}
+    rv["payload"] = {}
+    rv["size"] = {}
     starting_position: int = stream.tell()
 
     header_size: int = 0
@@ -50,20 +76,23 @@ def parse_packet(stream: StringIO):
 
     version_bin: str = stream.read(3)
     type_bin: str = stream.read(3)
-
-    rv["version"] = {"bin": version_bin, "value": bin_to_int(version_bin)}
-    rv["type"] = {"bin": type_bin, "value": bin_to_int(type_bin)}
-
+    rv["header"]["version"] = {"bin": version_bin, "value": bin_to_int(version_bin)}
+    rv["header"]["type"] = {"bin": type_bin, "value": bin_to_int(type_bin), "code": TYPE_CODES[type_bin]}
     if type_bin == LITERAL_TYPE_CODE:
         header_size = stream.tell() - starting_position
 
         literal_arr = parse_literal(stream)
-        rv["literal"] = [{"bin": v, "continue": v[0] == "1", "value": bin_to_int(v[1:])} for v in literal_arr]
+        literal_components = [{"bin": v, "continue": v[0] == "1", "value": v[1:]} for v in literal_arr]
+        rv["payload"] = {
+            "components": literal_components,
+            "bin": "".join([str(v["value"]) for v in literal_components]),
+            "value": bin_to_int("".join([str(v["value"]) for v in literal_components])),
+        }
 
         packet_size = len(literal_arr) * 5
     else:
         operator_type: str = stream.read(1)
-        rv["operator"] = {
+        rv["payload"] = {
             "type": {
                 "bin": operator_type,
                 "value": bin_to_int(operator_type),
@@ -93,11 +122,38 @@ def parse_packet(stream: StringIO):
 
             packet_size = bin_to_int(length_bin)
 
-        rv["operator"]["length"] = {"bin": length_bin, "value": bin_to_int(length_bin)}
+        rv["payload"]["length"] = {"bin": length_bin, "value": bin_to_int(length_bin)}
 
     rv["size"] = {"header": header_size, "packet": packet_size, "total": header_size + packet_size}
 
     return rv, header_size, packet_size
+
+
+def parse_op(op: Any, opstream: StringIO, size_target: Optional[int] = None):
+    current_position = opstream.tell()
+    if current_position > 0:
+        # seek back one char and read
+        opstream.seek(current_position - 1)
+        check_value = opstream.read(1)
+    else:
+        check_value = ""
+
+    match op["header"]["type"]["code"]:
+        case "LITERAL":
+            if check_value == ")":
+                opstream.seek(current_position - 1)
+                opstream.write(f"{op['payload']['value']},)")
+            else:
+                opstream.write(f"{op['payload']['value']},")
+
+        case _:
+            if check_value == ")":
+                opstream.seek(current_position - 1)
+                opstream.write(f"{op['header']['type']['code']}())")
+            else:
+                opstream.write(f"{op['header']['type']['code']}()")
+
+    print(opstream.getvalue())
 
 
 bin_str_array: List[str] = parse_input()
@@ -116,13 +172,62 @@ try:
 finally:
     stream.close()
 
-print(sum([v["version"]["value"] for v in output]))
+ops: List[Any] = []
+for op in output:
+    match op["header"]["type"]["code"]:
+        case "LITERAL":
+            ops.append(
+                (
+                    op["header"]["type"]["code"],
+                    op['payload']['value'],
+                    op["size"]["header"],
+                    op["size"]["packet"],
+                    op["size"]["total"]
+                )
+            )
+        case _:
+            ops.append(
+                (
+                    op["header"]["type"]["code"],
+                    None,
+                    op["size"]["header"],
+                    op["size"]["packet"],
+                    op["size"]["total"]
+                )
+            )
+
+    print(ops[-1:][0])
+
+ops = sorted(ops, reverse=True)
+
+
+def process_command(operations: List[Tuple[Any, ...]], size: int = 0, target: Optional[int] = None):
+    while True:
+        try:
+            op = operations.pop()
+            if op[0] != "LITERAL":
+                process_command(operations, 0, op[3])
+        except IndexError:
+            break
+
+# command: str = ""
+# while True:
+#     try:
+#         op = ops.pop()
+#         if op[0] == "LITERAL":
+#             ...
+#         else:
+#             ...
+
+#     except IndexError:
+#         break
+
 
 with open("result.txt", mode="wt") as result:
     result.write("version values: ")
-    result.write(repr([v["version"]["value"] for v in output]))
+    result.write(repr([v["header"]["version"]["value"] for v in output]))
     result.write("\n")
-    result.write(f"sum of all version values: {sum([v['version']['value'] for v in output])}")
+    result.write(f"sum of all version values: {sum([v['header']['version']['value'] for v in output])}")
     result.write("\n")
 
 with open("output.txt", mode="wt") as outfile:
