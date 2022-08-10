@@ -1,5 +1,5 @@
 from io import StringIO
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional
 
 
 def parse_input(filename: str = "input.txt") -> List[Any]:
@@ -172,56 +172,136 @@ try:
 finally:
     stream.close()
 
-ops: List[Any] = []
-for op in output:
-    match op["header"]["type"]["code"]:
-        case "LITERAL":
-            ops.append(
-                (
-                    op["header"]["type"]["code"],
-                    op['payload']['value'],
-                    op["size"]["header"],
-                    op["size"]["packet"],
-                    op["size"]["total"]
-                )
-            )
-        case _:
-            ops.append(
-                (
-                    op["header"]["type"]["code"],
-                    None,
-                    op["size"]["header"],
-                    op["size"]["packet"],
-                    op["size"]["total"]
-                )
-            )
 
-    print(ops[-1:][0])
+class OpNode(object):
+    def __init__(self, type: str, line: int, header: int, packet: int, **k):
+        self.type = type
+        self.header = header
+        self.packet = packet
+        self.line = line
+        self._literal: Optional[int] = None
 
-ops = sorted(ops, reverse=True)
+        self.children: List[OpNode] = []
+
+    def add(self, node: "OpNode"):
+        self.children.append(node)
+
+    @property
+    def literal(self) -> Optional[int]:
+        return self._literal
+
+    @literal.setter
+    def literal(self, value: int):
+        self._literal = value
+
+    @property
+    def is_literal(self) -> bool:
+        return self.type == "LITERAL"
+
+    @property
+    def total(self) -> int:
+        return self.header + self.packet
+
+    @property
+    def sizeof_children(self) -> int:
+        return sum([c.total for c in self.children])
 
 
-def process_command(operations: List[Tuple[Any, ...]], size: int = 0, target: Optional[int] = None):
-    while True:
-        try:
-            op = operations.pop()
-            if op[0] != "LITERAL":
-                process_command(operations, 0, op[3])
-        except IndexError:
+def parse_nodes(ops: List[Any], idx: int = 0):
+    wrapper = OpNode(ops[idx]["header"]["type"]["code"], idx + 1, ops[idx]["size"]["header"], ops[idx]["size"]["packet"])
+    if wrapper.is_literal:
+        wrapper.literal = int(ops[idx]["payload"]["value"])
+
+    tracking = idx
+    while wrapper.sizeof_children < wrapper.packet and not wrapper.is_literal:
+        tracking += 1
+        if tracking >= len(ops):
             break
 
-# command: str = ""
-# while True:
-#     try:
-#         op = ops.pop()
-#         if op[0] == "LITERAL":
-#             ...
-#         else:
-#             ...
+        node, tracking = parse_nodes(ops, tracking)
+        wrapper.add(node)
 
-#     except IndexError:
-#         break
+    # print(
+    #     f"{tracking: 4d}",
+    #     f"{idx: 4d}",
+    #     f"{wrapper.type:>8s}",
+    #     f"{wrapper.total: 4d}",
+    #     f"{wrapper.packet: 4d}",
+    #     f"  {str(wrapper.literal) if wrapper.literal is not None else '':<s}",
+    # )
+    return wrapper, tracking
 
+
+root_node, _i = parse_nodes(output)
+print(root_node.total, root_node.packet, root_node.sizeof_children)
+
+
+def evaluate_nodes(root: OpNode, debug: bool = False):
+    rv: Optional[int] = None
+    match root.type:
+        case "SUM":
+            rv = sum([evaluate_nodes(c) for c in root.children])
+            value = 0
+            for child in root.children:
+                value += evaluate_nodes(child)
+            rv = value
+            if debug:
+                print("sum of", [evaluate_nodes(c, debug) for c in root.children], rv)
+        case "PROD":
+            value: int = 1
+            for child in root.children:
+                value *= evaluate_nodes(child)
+            rv = value
+            if debug:
+                print("product of", [evaluate_nodes(c, debug) for c in root.children], rv)
+        case "MIN":
+            rv = min([evaluate_nodes(c) for c in root.children])
+            if debug:
+                print("min of", [evaluate_nodes(c, debug) for c in root.children], rv)
+        case "MAX":
+            rv = max([evaluate_nodes(c) for c in root.children])
+            if debug:
+                print("max of", [evaluate_nodes(c, debug) for c in root.children], rv)
+        case "GT":
+            rv = 1 if evaluate_nodes(root.children[0]) > evaluate_nodes(root.children[1]) else 0
+            if debug:
+                print("gt test", [evaluate_nodes(c, debug) for c in root.children], rv)
+        case "LT":
+            rv = 1 if evaluate_nodes(root.children[0]) < evaluate_nodes(root.children[1]) else 0
+            if debug:
+                print("lt test", [evaluate_nodes(c, debug) for c in root.children], rv)
+        case "EQ":
+            rv = 1 if evaluate_nodes(root.children[0]) == evaluate_nodes(root.children[1]) else 0
+            if debug:
+                print("eq test", [evaluate_nodes(c, debug) for c in root.children], rv)
+        case "LITERAL":
+            rv = root.literal
+
+    return rv
+
+
+badidea: Any = {}
+
+
+def debug_nodes(root: OpNode, level: int = 0):
+    sizes: List[Any] = []
+
+    for child in root.children:
+        clevel, cpacket, ctotal, csizes = debug_nodes(child, level + 1)
+        if clevel in badidea:
+            badidea[clevel].append((clevel, cpacket, ctotal, csizes))
+        else:
+            badidea[clevel] = [(clevel, cpacket, ctotal, csizes)]
+        sizes.append((cpacket, ctotal))
+        print(repr({"level": clevel, "packet": cpacket, "total": ctotal}))
+
+    return level, root.packet, root.total, sizes
+
+
+rlevel, rpacket, rtotal, rsizes = debug_nodes(root_node)
+badidea[0] = [(rlevel, rpacket, rtotal, rsizes)]
+print(repr(badidea))
+print(evaluate_nodes(root_node, False))
 
 with open("result.txt", mode="wt") as result:
     result.write("version values: ")
