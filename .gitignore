@@ -1,4 +1,4 @@
 .DS_Store
-
+.active_aoc
 .venv/
 .vscode/
