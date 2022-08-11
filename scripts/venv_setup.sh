@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 
-TARGET_DIR="${1:-"${HOME}/code/advent_of_code/.venv"}"
-SOURCE_PY="${2:-"/usr/local/opt/python@3.10/bin/python3"}"
+# assume script is running from child "scripts" dir
+script_abs_path="$(cd "$(dirname "${0}")/.." && pwd)"
+
+target_dir="${1:-"${script_abs_path}/.venv"}"
+source_py="${2:-"$(type -p python3)"}"
 
 virtualenv \
     --download \
     --always-copy \
     --clear \
-    --python "${SOURCE_PY}" \
+    --python "${source_py}" \
     --verbose \
-    "${TARGET_DIR}"
+    "${target_dir}"
