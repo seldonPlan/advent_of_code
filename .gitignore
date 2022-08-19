@@ -1,4 +1,10 @@
 .DS_Store
-.active_aoc
 .venv/
 .vscode/
+.mypy_cache/
+
+# context specific, used with aoc_manager
+**/.cache/
+.active_aoc
+**/.aoc_session
+
