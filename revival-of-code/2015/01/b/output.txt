@@ -1,0 +1,3 @@
+number of up directions [(]: 897
+number of down direction [)]: 898
+up [897] - down [898] = final floor [-1]position for basement (-1) = [1795]
