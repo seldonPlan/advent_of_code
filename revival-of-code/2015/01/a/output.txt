@@ -1,0 +1,3 @@
+number of up directions [(]: 3537
+number of down direction [)]: 3463
+up [3537] - down [3463] = final floor [74]
