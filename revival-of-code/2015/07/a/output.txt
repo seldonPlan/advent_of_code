@@ -1,0 +1,549 @@
+new keys to be solved: ['b', 'c']
+b {'op': 'EQ', 'args': (44430,), 'value': 44430}
+c {'op': 'EQ', 'args': (0,), 'value': 0}
+new keys to be solved: ['f', 'e', 't', 'd', 'v']
+f {'op': 'RSHIFT', 'args': ('b', 5), 'value': 1388}
+e {'op': 'RSHIFT', 'args': ('b', 3), 'value': 5553}
+t {'op': 'LSHIFT', 'args': ('c', 1), 'value': 0}
+d {'op': 'RSHIFT', 'args': ('b', 2), 'value': 11107}
+v {'op': 'RSHIFT', 'args': ('b', 1), 'value': 22215}
+new keys to be solved: ['h', 'g']
+h {'op': 'AND', 'args': ('e', 'f'), 'value': 1312}
+g {'op': 'OR', 'args': ('e', 'f'), 'value': 5629}
+new keys to be solved: ['i']
+i {'op': 'NOT', 'args': ('h',), 'value': 735}
+new keys to be solved: ['j']
+j {'op': 'AND', 'args': ('g', 'i'), 'value': 221}
+new keys to be solved: ['k', 'l']
+k {'op': 'OR', 'args': ('d', 'j'), 'value': 11263}
+l {'op': 'AND', 'args': ('d', 'j'), 'value': 65}
+new keys to be solved: ['m']
+m {'op': 'NOT', 'args': ('l',), 'value': 62}
+new keys to be solved: ['n']
+n {'op': 'AND', 'args': ('k', 'm'), 'value': 62}
+new keys to be solved: ['o', 'p']
+o {'op': 'OR', 'args': ('b', 'n'), 'value': 44478}
+p {'op': 'AND', 'args': ('b', 'n'), 'value': 14}
+new keys to be solved: ['q']
+q {'op': 'NOT', 'args': ('p',), 'value': 1}
+new keys to be solved: ['r']
+r {'op': 'AND', 'args': ('o', 'q'), 'value': 0}
+new keys to be solved: ['s']
+s {'op': 'AND', 'args': (1, 'r'), 'value': 0}
+new keys to be solved: ['w', 'u']
+w {'op': 'LSHIFT', 'args': ('s', 15), 'value': 0}
+u {'op': 'OR', 'args': ('t', 's'), 'value': 0}
+new keys to be solved: ['ao', 'x']
+ao {'op': 'LSHIFT', 'args': ('u', 1), 'value': 0}
+x {'op': 'OR', 'args': ('v', 'w'), 'value': 22215}
+new keys to be solved: ['aa', 'aq', 'z', 'y']
+aa {'op': 'RSHIFT', 'args': ('x', 5), 'value': 694}
+aq {'op': 'RSHIFT', 'args': ('x', 1), 'value': 11107}
+z {'op': 'RSHIFT', 'args': ('x', 3), 'value': 2776}
+y {'op': 'RSHIFT', 'args': ('x', 2), 'value': 5553}
+new keys to be solved: ['ac', 'ab']
+ac {'op': 'AND', 'args': ('z', 'aa'), 'value': 656}
+ab {'op': 'OR', 'args': ('z', 'aa'), 'value': 2814}
+new keys to be solved: ['ad']
+ad {'op': 'NOT', 'args': ('ac',), 'value': 367}
+new keys to be solved: ['ae']
+ae {'op': 'AND', 'args': ('ab', 'ad'), 'value': 110}
+new keys to be solved: ['ag', 'af']
+ag {'op': 'AND', 'args': ('y', 'ae'), 'value': 32}
+af {'op': 'OR', 'args': ('y', 'ae'), 'value': 5631}
+new keys to be solved: ['ah']
+ah {'op': 'NOT', 'args': ('ag',), 'value': 31}
+new keys to be solved: ['ai']
+ai {'op': 'AND', 'args': ('af', 'ah'), 'value': 31}
+new keys to be solved: ['ak', 'aj']
+ak {'op': 'AND', 'args': ('x', 'ai'), 'value': 7}
+aj {'op': 'OR', 'args': ('x', 'ai'), 'value': 22239}
+new keys to be solved: ['al']
+al {'op': 'NOT', 'args': ('ak',), 'value': 0}
+new keys to be solved: ['am']
+am {'op': 'AND', 'args': ('aj', 'al'), 'value': 0}
+new keys to be solved: ['an']
+an {'op': 'AND', 'args': (1, 'am'), 'value': 0}
+new keys to be solved: ['ap', 'ar']
+ap {'op': 'OR', 'args': ('ao', 'an'), 'value': 0}
+ar {'op': 'LSHIFT', 'args': ('an', 15), 'value': 0}
+new keys to be solved: ['bj', 'as']
+bj {'op': 'LSHIFT', 'args': ('ap', 1), 'value': 0}
+as {'op': 'OR', 'args': ('aq', 'ar'), 'value': 11107}
+new keys to be solved: ['bl', 'au', 'at', 'av']
+bl {'op': 'RSHIFT', 'args': ('as', 1), 'value': 5553}
+au {'op': 'RSHIFT', 'args': ('as', 3), 'value': 1388}
+at {'op': 'RSHIFT', 'args': ('as', 2), 'value': 2776}
+av {'op': 'RSHIFT', 'args': ('as', 5), 'value': 347}
+new keys to be solved: ['ax', 'aw']
+ax {'op': 'AND', 'args': ('au', 'av'), 'value': 328}
+aw {'op': 'OR', 'args': ('au', 'av'), 'value': 1407}
+new keys to be solved: ['ay']
+ay {'op': 'NOT', 'args': ('ax',), 'value': 183}
+new keys to be solved: ['az']
+az {'op': 'AND', 'args': ('aw', 'ay'), 'value': 55}
+new keys to be solved: ['ba', 'bb']
+ba {'op': 'OR', 'args': ('at', 'az'), 'value': 2815}
+bb {'op': 'AND', 'args': ('at', 'az'), 'value': 16}
+new keys to be solved: ['bc']
+bc {'op': 'NOT', 'args': ('bb',), 'value': 15}
+new keys to be solved: ['bd']
+bd {'op': 'AND', 'args': ('ba', 'bc'), 'value': 15}
+new keys to be solved: ['bf', 'be']
+bf {'op': 'AND', 'args': ('as', 'bd'), 'value': 3}
+be {'op': 'OR', 'args': ('as', 'bd'), 'value': 11119}
+new keys to be solved: ['bg']
+bg {'op': 'NOT', 'args': ('bf',), 'value': 0}
+new keys to be solved: ['bh']
+bh {'op': 'AND', 'args': ('be', 'bg'), 'value': 0}
+new keys to be solved: ['bi']
+bi {'op': 'AND', 'args': (1, 'bh'), 'value': 0}
+new keys to be solved: ['bk', 'bm']
+bk {'op': 'OR', 'args': ('bj', 'bi'), 'value': 0}
+bm {'op': 'LSHIFT', 'args': ('bi', 15), 'value': 0}
+new keys to be solved: ['ce', 'bn']
+ce {'op': 'LSHIFT', 'args': ('bk', 1), 'value': 0}
+bn {'op': 'OR', 'args': ('bl', 'bm'), 'value': 5553}
+new keys to be solved: ['bo', 'bp', 'cg', 'bq']
+bo {'op': 'RSHIFT', 'args': ('bn', 2), 'value': 1388}
+bp {'op': 'RSHIFT', 'args': ('bn', 3), 'value': 694}
+cg {'op': 'RSHIFT', 'args': ('bn', 1), 'value': 2776}
+bq {'op': 'RSHIFT', 'args': ('bn', 5), 'value': 173}
+new keys to be solved: ['bs', 'br']
+bs {'op': 'AND', 'args': ('bp', 'bq'), 'value': 164}
+br {'op': 'OR', 'args': ('bp', 'bq'), 'value': 703}
+new keys to be solved: ['bt']
+bt {'op': 'NOT', 'args': ('bs',), 'value': 91}
+new keys to be solved: ['bu']
+bu {'op': 'AND', 'args': ('br', 'bt'), 'value': 27}
+new keys to be solved: ['bv', 'bw']
+bv {'op': 'OR', 'args': ('bo', 'bu'), 'value': 1407}
+bw {'op': 'AND', 'args': ('bo', 'bu'), 'value': 8}
+new keys to be solved: ['bx']
+bx {'op': 'NOT', 'args': ('bw',), 'value': 7}
+new keys to be solved: ['by']
+by {'op': 'AND', 'args': ('bv', 'bx'), 'value': 7}
+new keys to be solved: ['bz', 'ca']
+bz {'op': 'OR', 'args': ('bn', 'by'), 'value': 5559}
+ca {'op': 'AND', 'args': ('bn', 'by'), 'value': 1}
+new keys to be solved: ['cb']
+cb {'op': 'NOT', 'args': ('ca',), 'value': 0}
+new keys to be solved: ['cc']
+cc {'op': 'AND', 'args': ('bz', 'cb'), 'value': 0}
+new keys to be solved: ['cd']
+cd {'op': 'AND', 'args': (1, 'cc'), 'value': 0}
+new keys to be solved: ['ch', 'cf']
+ch {'op': 'LSHIFT', 'args': ('cd', 15), 'value': 0}
+cf {'op': 'OR', 'args': ('ce', 'cd'), 'value': 0}
+new keys to be solved: ['ci', 'cz']
+ci {'op': 'OR', 'args': ('cg', 'ch'), 'value': 2776}
+cz {'op': 'LSHIFT', 'args': ('cf', 1), 'value': 0}
+new keys to be solved: ['cj', 'cl', 'ck', 'db']
+cj {'op': 'RSHIFT', 'args': ('ci', 2), 'value': 694}
+cl {'op': 'RSHIFT', 'args': ('ci', 5), 'value': 86}
+ck {'op': 'RSHIFT', 'args': ('ci', 3), 'value': 347}
+db {'op': 'RSHIFT', 'args': ('ci', 1), 'value': 1388}
+new keys to be solved: ['cm', 'cn']
+cm {'op': 'OR', 'args': ('ck', 'cl'), 'value': 351}
+cn {'op': 'AND', 'args': ('ck', 'cl'), 'value': 82}
+new keys to be solved: ['co']
+co {'op': 'NOT', 'args': ('cn',), 'value': 45}
+new keys to be solved: ['cp']
+cp {'op': 'AND', 'args': ('cm', 'co'), 'value': 13}
+new keys to be solved: ['cq', 'cr']
+cq {'op': 'OR', 'args': ('cj', 'cp'), 'value': 703}
+cr {'op': 'AND', 'args': ('cj', 'cp'), 'value': 4}
+new keys to be solved: ['cs']
+cs {'op': 'NOT', 'args': ('cr',), 'value': 3}
+new keys to be solved: ['ct']
+ct {'op': 'AND', 'args': ('cq', 'cs'), 'value': 3}
+new keys to be solved: ['cu', 'cv']
+cu {'op': 'OR', 'args': ('ci', 'ct'), 'value': 2779}
+cv {'op': 'AND', 'args': ('ci', 'ct'), 'value': 0}
+new keys to be solved: ['cw']
+cw {'op': 'NOT', 'args': ('cv',), 'value': 1}
+new keys to be solved: ['cx']
+cx {'op': 'AND', 'args': ('cu', 'cw'), 'value': 1}
+new keys to be solved: ['cy']
+cy {'op': 'AND', 'args': (1, 'cx'), 'value': 1}
+new keys to be solved: ['da', 'dc']
+da {'op': 'OR', 'args': ('cz', 'cy'), 'value': 1}
+dc {'op': 'LSHIFT', 'args': ('cy', 15), 'value': 32768}
+new keys to be solved: ['dd', 'du']
+dd {'op': 'OR', 'args': ('db', 'dc'), 'value': 34156}
+du {'op': 'LSHIFT', 'args': ('da', 1), 'value': 2}
+new keys to be solved: ['de', 'dw', 'df', 'dg']
+de {'op': 'RSHIFT', 'args': ('dd', 2), 'value': 8539}
+dw {'op': 'RSHIFT', 'args': ('dd', 1), 'value': 17078}
+df {'op': 'RSHIFT', 'args': ('dd', 3), 'value': 4269}
+dg {'op': 'RSHIFT', 'args': ('dd', 5), 'value': 1067}
+new keys to be solved: ['dh', 'di']
+dh {'op': 'OR', 'args': ('df', 'dg'), 'value': 5295}
+di {'op': 'AND', 'args': ('df', 'dg'), 'value': 41}
+new keys to be solved: ['dj']
+dj {'op': 'NOT', 'args': ('di',), 'value': 22}
+new keys to be solved: ['dk']
+dk {'op': 'AND', 'args': ('dh', 'dj'), 'value': 6}
+new keys to be solved: ['dm', 'dl']
+dm {'op': 'AND', 'args': ('de', 'dk'), 'value': 2}
+dl {'op': 'OR', 'args': ('de', 'dk'), 'value': 8543}
+new keys to be solved: ['dn']
+dn {'op': 'NOT', 'args': ('dm',), 'value': 1}
+new keys to be solved: ['do']
+do {'op': 'AND', 'args': ('dl', 'dn'), 'value': 1}
+new keys to be solved: ['dp', 'dq']
+dp {'op': 'OR', 'args': ('dd', 'do'), 'value': 34157}
+dq {'op': 'AND', 'args': ('dd', 'do'), 'value': 0}
+new keys to be solved: ['dr']
+dr {'op': 'NOT', 'args': ('dq',), 'value': 1}
+new keys to be solved: ['ds']
+ds {'op': 'AND', 'args': ('dp', 'dr'), 'value': 1}
+new keys to be solved: ['dt']
+dt {'op': 'AND', 'args': (1, 'ds'), 'value': 1}
+new keys to be solved: ['dv', 'dx']
+dv {'op': 'OR', 'args': ('du', 'dt'), 'value': 3}
+dx {'op': 'LSHIFT', 'args': ('dt', 15), 'value': 32768}
+new keys to be solved: ['dy', 'ep']
+dy {'op': 'OR', 'args': ('dw', 'dx'), 'value': 49846}
+ep {'op': 'LSHIFT', 'args': ('dv', 1), 'value': 6}
+new keys to be solved: ['er', 'ea', 'dz', 'eb']
+er {'op': 'RSHIFT', 'args': ('dy', 1), 'value': 24923}
+ea {'op': 'RSHIFT', 'args': ('dy', 3), 'value': 6230}
+dz {'op': 'RSHIFT', 'args': ('dy', 2), 'value': 12461}
+eb {'op': 'RSHIFT', 'args': ('dy', 5), 'value': 1557}
+new keys to be solved: ['ed', 'ec']
+ed {'op': 'AND', 'args': ('ea', 'eb'), 'value': 20}
+ec {'op': 'OR', 'args': ('ea', 'eb'), 'value': 7767}
+new keys to be solved: ['ee']
+ee {'op': 'NOT', 'args': ('ed',), 'value': 11}
+new keys to be solved: ['ef']
+ef {'op': 'AND', 'args': ('ec', 'ee'), 'value': 3}
+new keys to be solved: ['eg', 'eh']
+eg {'op': 'OR', 'args': ('dz', 'ef'), 'value': 12463}
+eh {'op': 'AND', 'args': ('dz', 'ef'), 'value': 1}
+new keys to be solved: ['ei']
+ei {'op': 'NOT', 'args': ('eh',), 'value': 0}
+new keys to be solved: ['ej']
+ej {'op': 'AND', 'args': ('eg', 'ei'), 'value': 0}
+new keys to be solved: ['el', 'ek']
+el {'op': 'AND', 'args': ('dy', 'ej'), 'value': 0}
+ek {'op': 'OR', 'args': ('dy', 'ej'), 'value': 49846}
+new keys to be solved: ['em']
+em {'op': 'NOT', 'args': ('el',), 'value': 1}
+new keys to be solved: ['en']
+en {'op': 'AND', 'args': ('ek', 'em'), 'value': 0}
+new keys to be solved: ['eo']
+eo {'op': 'AND', 'args': (1, 'en'), 'value': 0}
+new keys to be solved: ['eq', 'es']
+eq {'op': 'OR', 'args': ('ep', 'eo'), 'value': 6}
+es {'op': 'LSHIFT', 'args': ('eo', 15), 'value': 0}
+new keys to be solved: ['et', 'fk']
+et {'op': 'OR', 'args': ('er', 'es'), 'value': 24923}
+fk {'op': 'LSHIFT', 'args': ('eq', 1), 'value': 12}
+new keys to be solved: ['eu', 'ev', 'ew', 'fm']
+eu {'op': 'RSHIFT', 'args': ('et', 2), 'value': 6230}
+ev {'op': 'RSHIFT', 'args': ('et', 3), 'value': 3115}
+ew {'op': 'RSHIFT', 'args': ('et', 5), 'value': 778}
+fm {'op': 'RSHIFT', 'args': ('et', 1), 'value': 12461}
+new keys to be solved: ['ex', 'ey']
+ex {'op': 'OR', 'args': ('ev', 'ew'), 'value': 3883}
+ey {'op': 'AND', 'args': ('ev', 'ew'), 'value': 10}
+new keys to be solved: ['ez']
+ez {'op': 'NOT', 'args': ('ey',), 'value': 5}
+new keys to be solved: ['fa']
+fa {'op': 'AND', 'args': ('ex', 'ez'), 'value': 1}
+new keys to be solved: ['fb', 'fc']
+fb {'op': 'OR', 'args': ('eu', 'fa'), 'value': 6231}
+fc {'op': 'AND', 'args': ('eu', 'fa'), 'value': 0}
+new keys to be solved: ['fd']
+fd {'op': 'NOT', 'args': ('fc',), 'value': 1}
+new keys to be solved: ['fe']
+fe {'op': 'AND', 'args': ('fb', 'fd'), 'value': 1}
+new keys to be solved: ['ff', 'fg']
+ff {'op': 'OR', 'args': ('et', 'fe'), 'value': 24923}
+fg {'op': 'AND', 'args': ('et', 'fe'), 'value': 1}
+new keys to be solved: ['fh']
+fh {'op': 'NOT', 'args': ('fg',), 'value': 0}
+new keys to be solved: ['fi']
+fi {'op': 'AND', 'args': ('ff', 'fh'), 'value': 0}
+new keys to be solved: ['fj']
+fj {'op': 'AND', 'args': (1, 'fi'), 'value': 0}
+new keys to be solved: ['fl', 'fn']
+fl {'op': 'OR', 'args': ('fk', 'fj'), 'value': 12}
+fn {'op': 'LSHIFT', 'args': ('fj', 15), 'value': 0}
+new keys to be solved: ['fo', 'gf']
+fo {'op': 'OR', 'args': ('fm', 'fn'), 'value': 12461}
+gf {'op': 'LSHIFT', 'args': ('fl', 1), 'value': 24}
+new keys to be solved: ['fr', 'gh', 'fp', 'fq']
+fr {'op': 'RSHIFT', 'args': ('fo', 5), 'value': 389}
+gh {'op': 'RSHIFT', 'args': ('fo', 1), 'value': 6230}
+fp {'op': 'RSHIFT', 'args': ('fo', 2), 'value': 3115}
+fq {'op': 'RSHIFT', 'args': ('fo', 3), 'value': 1557}
+new keys to be solved: ['ft', 'fs']
+ft {'op': 'AND', 'args': ('fq', 'fr'), 'value': 5}
+fs {'op': 'OR', 'args': ('fq', 'fr'), 'value': 1941}
+new keys to be solved: ['fu']
+fu {'op': 'NOT', 'args': ('ft',), 'value': 2}
+new keys to be solved: ['fv']
+fv {'op': 'AND', 'args': ('fs', 'fu'), 'value': 0}
+new keys to be solved: ['fw', 'fx']
+fw {'op': 'OR', 'args': ('fp', 'fv'), 'value': 3115}
+fx {'op': 'AND', 'args': ('fp', 'fv'), 'value': 0}
+new keys to be solved: ['fy']
+fy {'op': 'NOT', 'args': ('fx',), 'value': 1}
+new keys to be solved: ['fz']
+fz {'op': 'AND', 'args': ('fw', 'fy'), 'value': 1}
+new keys to be solved: ['ga', 'gb']
+ga {'op': 'OR', 'args': ('fo', 'fz'), 'value': 12461}
+gb {'op': 'AND', 'args': ('fo', 'fz'), 'value': 1}
+new keys to be solved: ['gc']
+gc {'op': 'NOT', 'args': ('gb',), 'value': 0}
+new keys to be solved: ['gd']
+gd {'op': 'AND', 'args': ('ga', 'gc'), 'value': 0}
+new keys to be solved: ['ge']
+ge {'op': 'AND', 'args': (1, 'gd'), 'value': 0}
+new keys to be solved: ['gi', 'gg']
+gi {'op': 'LSHIFT', 'args': ('ge', 15), 'value': 0}
+gg {'op': 'OR', 'args': ('gf', 'ge'), 'value': 24}
+new keys to be solved: ['gj', 'ha']
+gj {'op': 'OR', 'args': ('gh', 'gi'), 'value': 6230}
+ha {'op': 'LSHIFT', 'args': ('gg', 1), 'value': 48}
+new keys to be solved: ['gk', 'hc', 'gm', 'gl']
+gk {'op': 'RSHIFT', 'args': ('gj', 2), 'value': 1557}
+hc {'op': 'RSHIFT', 'args': ('gj', 1), 'value': 3115}
+gm {'op': 'RSHIFT', 'args': ('gj', 5), 'value': 194}
+gl {'op': 'RSHIFT', 'args': ('gj', 3), 'value': 778}
+new keys to be solved: ['gn', 'go']
+gn {'op': 'OR', 'args': ('gl', 'gm'), 'value': 970}
+go {'op': 'AND', 'args': ('gl', 'gm'), 'value': 2}
+new keys to be solved: ['gp']
+gp {'op': 'NOT', 'args': ('go',), 'value': 1}
+new keys to be solved: ['gq']
+gq {'op': 'AND', 'args': ('gn', 'gp'), 'value': 0}
+new keys to be solved: ['gr', 'gs']
+gr {'op': 'OR', 'args': ('gk', 'gq'), 'value': 1557}
+gs {'op': 'AND', 'args': ('gk', 'gq'), 'value': 0}
+new keys to be solved: ['gt']
+gt {'op': 'NOT', 'args': ('gs',), 'value': 1}
+new keys to be solved: ['gu']
+gu {'op': 'AND', 'args': ('gr', 'gt'), 'value': 1}
+new keys to be solved: ['gw', 'gv']
+gw {'op': 'AND', 'args': ('gj', 'gu'), 'value': 0}
+gv {'op': 'OR', 'args': ('gj', 'gu'), 'value': 6231}
+new keys to be solved: ['gx']
+gx {'op': 'NOT', 'args': ('gw',), 'value': 1}
+new keys to be solved: ['gy']
+gy {'op': 'AND', 'args': ('gv', 'gx'), 'value': 1}
+new keys to be solved: ['gz']
+gz {'op': 'AND', 'args': (1, 'gy'), 'value': 1}
+new keys to be solved: ['hb', 'hd']
+hb {'op': 'OR', 'args': ('ha', 'gz'), 'value': 49}
+hd {'op': 'LSHIFT', 'args': ('gz', 15), 'value': 32768}
+new keys to be solved: ['he', 'hv']
+he {'op': 'OR', 'args': ('hc', 'hd'), 'value': 35883}
+hv {'op': 'LSHIFT', 'args': ('hb', 1), 'value': 98}
+new keys to be solved: ['hx', 'hg', 'hh', 'hf']
+hx {'op': 'RSHIFT', 'args': ('he', 1), 'value': 17941}
+hg {'op': 'RSHIFT', 'args': ('he', 3), 'value': 4485}
+hh {'op': 'RSHIFT', 'args': ('he', 5), 'value': 1121}
+hf {'op': 'RSHIFT', 'args': ('he', 2), 'value': 8970}
+new keys to be solved: ['hi', 'hj']
+hi {'op': 'OR', 'args': ('hg', 'hh'), 'value': 5605}
+hj {'op': 'AND', 'args': ('hg', 'hh'), 'value': 1}
+new keys to be solved: ['hk']
+hk {'op': 'NOT', 'args': ('hj',), 'value': 0}
+new keys to be solved: ['hl']
+hl {'op': 'AND', 'args': ('hi', 'hk'), 'value': 0}
+new keys to be solved: ['hm', 'hn']
+hm {'op': 'OR', 'args': ('hf', 'hl'), 'value': 8970}
+hn {'op': 'AND', 'args': ('hf', 'hl'), 'value': 0}
+new keys to be solved: ['ho']
+ho {'op': 'NOT', 'args': ('hn',), 'value': 1}
+new keys to be solved: ['hp']
+hp {'op': 'AND', 'args': ('hm', 'ho'), 'value': 0}
+new keys to be solved: ['hq', 'hr']
+hq {'op': 'OR', 'args': ('he', 'hp'), 'value': 35883}
+hr {'op': 'AND', 'args': ('he', 'hp'), 'value': 0}
+new keys to be solved: ['hs']
+hs {'op': 'NOT', 'args': ('hr',), 'value': 1}
+new keys to be solved: ['ht']
+ht {'op': 'AND', 'args': ('hq', 'hs'), 'value': 1}
+new keys to be solved: ['hu']
+hu {'op': 'AND', 'args': (1, 'ht'), 'value': 1}
+new keys to be solved: ['hy', 'hw']
+hy {'op': 'LSHIFT', 'args': ('hu', 15), 'value': 32768}
+hw {'op': 'OR', 'args': ('hv', 'hu'), 'value': 99}
+new keys to be solved: ['iq', 'hz']
+iq {'op': 'LSHIFT', 'args': ('hw', 1), 'value': 198}
+hz {'op': 'OR', 'args': ('hx', 'hy'), 'value': 50709}
+new keys to be solved: ['is', 'ic', 'ib', 'ia']
+is {'op': 'RSHIFT', 'args': ('hz', 1), 'value': 25354}
+ic {'op': 'RSHIFT', 'args': ('hz', 5), 'value': 1584}
+ib {'op': 'RSHIFT', 'args': ('hz', 3), 'value': 6338}
+ia {'op': 'RSHIFT', 'args': ('hz', 2), 'value': 12677}
+new keys to be solved: ['ie', 'id']
+ie {'op': 'AND', 'args': ('ib', 'ic'), 'value': 0}
+id {'op': 'OR', 'args': ('ib', 'ic'), 'value': 7922}
+new keys to be solved: ['if']
+if {'op': 'NOT', 'args': ('ie',), 'value': 1}
+new keys to be solved: ['ig']
+ig {'op': 'AND', 'args': ('id', 'if'), 'value': 0}
+new keys to be solved: ['ih', 'ii']
+ih {'op': 'OR', 'args': ('ia', 'ig'), 'value': 12677}
+ii {'op': 'AND', 'args': ('ia', 'ig'), 'value': 0}
+new keys to be solved: ['ij']
+ij {'op': 'NOT', 'args': ('ii',), 'value': 1}
+new keys to be solved: ['ik']
+ik {'op': 'AND', 'args': ('ih', 'ij'), 'value': 1}
+new keys to be solved: ['il', 'im']
+il {'op': 'OR', 'args': ('hz', 'ik'), 'value': 50709}
+im {'op': 'AND', 'args': ('hz', 'ik'), 'value': 1}
+new keys to be solved: ['in']
+in {'op': 'NOT', 'args': ('im',), 'value': 0}
+new keys to be solved: ['io']
+io {'op': 'AND', 'args': ('il', 'in'), 'value': 0}
+new keys to be solved: ['ip']
+ip {'op': 'AND', 'args': (1, 'io'), 'value': 0}
+new keys to be solved: ['it', 'ir']
+it {'op': 'LSHIFT', 'args': ('ip', 15), 'value': 0}
+ir {'op': 'OR', 'args': ('iq', 'ip'), 'value': 198}
+new keys to be solved: ['iu', 'jl']
+iu {'op': 'OR', 'args': ('is', 'it'), 'value': 25354}
+jl {'op': 'LSHIFT', 'args': ('ir', 1), 'value': 396}
+new keys to be solved: ['iw', 'ix', 'jn', 'iv']
+iw {'op': 'RSHIFT', 'args': ('iu', 3), 'value': 3169}
+ix {'op': 'RSHIFT', 'args': ('iu', 5), 'value': 792}
+jn {'op': 'RSHIFT', 'args': ('iu', 1), 'value': 12677}
+iv {'op': 'RSHIFT', 'args': ('iu', 2), 'value': 6338}
+new keys to be solved: ['iz', 'iy']
+iz {'op': 'AND', 'args': ('iw', 'ix'), 'value': 0}
+iy {'op': 'OR', 'args': ('iw', 'ix'), 'value': 3961}
+new keys to be solved: ['ja']
+ja {'op': 'NOT', 'args': ('iz',), 'value': 1}
+new keys to be solved: ['jb']
+jb {'op': 'AND', 'args': ('iy', 'ja'), 'value': 1}
+new keys to be solved: ['jc', 'jd']
+jc {'op': 'OR', 'args': ('iv', 'jb'), 'value': 6339}
+jd {'op': 'AND', 'args': ('iv', 'jb'), 'value': 0}
+new keys to be solved: ['je']
+je {'op': 'NOT', 'args': ('jd',), 'value': 1}
+new keys to be solved: ['jf']
+jf {'op': 'AND', 'args': ('jc', 'je'), 'value': 1}
+new keys to be solved: ['jg', 'jh']
+jg {'op': 'OR', 'args': ('iu', 'jf'), 'value': 25355}
+jh {'op': 'AND', 'args': ('iu', 'jf'), 'value': 0}
+new keys to be solved: ['ji']
+ji {'op': 'NOT', 'args': ('jh',), 'value': 1}
+new keys to be solved: ['jj']
+jj {'op': 'AND', 'args': ('jg', 'ji'), 'value': 1}
+new keys to be solved: ['jk']
+jk {'op': 'AND', 'args': (1, 'jj'), 'value': 1}
+new keys to be solved: ['jo', 'jm']
+jo {'op': 'LSHIFT', 'args': ('jk', 15), 'value': 32768}
+jm {'op': 'OR', 'args': ('jl', 'jk'), 'value': 397}
+new keys to be solved: ['kg', 'jp']
+kg {'op': 'LSHIFT', 'args': ('jm', 1), 'value': 794}
+jp {'op': 'OR', 'args': ('jn', 'jo'), 'value': 45445}
+new keys to be solved: ['js', 'jr', 'ki', 'jq']
+js {'op': 'RSHIFT', 'args': ('jp', 5), 'value': 1420}
+jr {'op': 'RSHIFT', 'args': ('jp', 3), 'value': 5680}
+ki {'op': 'RSHIFT', 'args': ('jp', 1), 'value': 22722}
+jq {'op': 'RSHIFT', 'args': ('jp', 2), 'value': 11361}
+new keys to be solved: ['jt', 'ju']
+jt {'op': 'OR', 'args': ('jr', 'js'), 'value': 6076}
+ju {'op': 'AND', 'args': ('jr', 'js'), 'value': 1024}
+new keys to be solved: ['jv']
+jv {'op': 'NOT', 'args': ('ju',), 'value': 1023}
+new keys to be solved: ['jw']
+jw {'op': 'AND', 'args': ('jt', 'jv'), 'value': 956}
+new keys to be solved: ['jy', 'jx']
+jy {'op': 'AND', 'args': ('jq', 'jw'), 'value': 32}
+jx {'op': 'OR', 'args': ('jq', 'jw'), 'value': 12285}
+new keys to be solved: ['jz']
+jz {'op': 'NOT', 'args': ('jy',), 'value': 31}
+new keys to be solved: ['ka']
+ka {'op': 'AND', 'args': ('jx', 'jz'), 'value': 29}
+new keys to be solved: ['kc', 'kb']
+kc {'op': 'AND', 'args': ('jp', 'ka'), 'value': 5}
+kb {'op': 'OR', 'args': ('jp', 'ka'), 'value': 45469}
+new keys to be solved: ['kd']
+kd {'op': 'NOT', 'args': ('kc',), 'value': 2}
+new keys to be solved: ['ke']
+ke {'op': 'AND', 'args': ('kb', 'kd'), 'value': 0}
+new keys to be solved: ['kf']
+kf {'op': 'AND', 'args': (1, 'ke'), 'value': 0}
+new keys to be solved: ['kh', 'kj']
+kh {'op': 'OR', 'args': ('kg', 'kf'), 'value': 794}
+kj {'op': 'LSHIFT', 'args': ('kf', 15), 'value': 0}
+new keys to be solved: ['kk', 'lb']
+kk {'op': 'OR', 'args': ('ki', 'kj'), 'value': 22722}
+lb {'op': 'LSHIFT', 'args': ('kh', 1), 'value': 1588}
+new keys to be solved: ['km', 'kl', 'ld', 'kn']
+km {'op': 'RSHIFT', 'args': ('kk', 3), 'value': 2840}
+kl {'op': 'RSHIFT', 'args': ('kk', 2), 'value': 5680}
+ld {'op': 'RSHIFT', 'args': ('kk', 1), 'value': 11361}
+kn {'op': 'RSHIFT', 'args': ('kk', 5), 'value': 710}
+new keys to be solved: ['kp', 'ko']
+kp {'op': 'AND', 'args': ('km', 'kn'), 'value': 512}
+ko {'op': 'OR', 'args': ('km', 'kn'), 'value': 3038}
+new keys to be solved: ['kq']
+kq {'op': 'NOT', 'args': ('kp',), 'value': 511}
+new keys to be solved: ['kr']
+kr {'op': 'AND', 'args': ('ko', 'kq'), 'value': 478}
+new keys to be solved: ['kt', 'ks']
+kt {'op': 'AND', 'args': ('kl', 'kr'), 'value': 16}
+ks {'op': 'OR', 'args': ('kl', 'kr'), 'value': 6142}
+new keys to be solved: ['ku']
+ku {'op': 'NOT', 'args': ('kt',), 'value': 15}
+new keys to be solved: ['kv']
+kv {'op': 'AND', 'args': ('ks', 'ku'), 'value': 14}
+new keys to be solved: ['kx', 'kw']
+kx {'op': 'AND', 'args': ('kk', 'kv'), 'value': 2}
+kw {'op': 'OR', 'args': ('kk', 'kv'), 'value': 22734}
+new keys to be solved: ['ky']
+ky {'op': 'NOT', 'args': ('kx',), 'value': 1}
+new keys to be solved: ['kz']
+kz {'op': 'AND', 'args': ('kw', 'ky'), 'value': 0}
+new keys to be solved: ['la']
+la {'op': 'AND', 'args': (1, 'kz'), 'value': 0}
+new keys to be solved: ['lc', 'le']
+lc {'op': 'OR', 'args': ('lb', 'la'), 'value': 1588}
+le {'op': 'LSHIFT', 'args': ('la', 15), 'value': 0}
+new keys to be solved: ['lf', 'lw']
+lf {'op': 'OR', 'args': ('ld', 'le'), 'value': 11361}
+lw {'op': 'LSHIFT', 'args': ('lc', 1), 'value': 3176}
+new keys to be solved: ['lg', 'ly', 'li', 'lh']
+lg {'op': 'RSHIFT', 'args': ('lf', 2), 'value': 2840}
+ly {'op': 'RSHIFT', 'args': ('lf', 1), 'value': 5680}
+li {'op': 'RSHIFT', 'args': ('lf', 5), 'value': 355}
+lh {'op': 'RSHIFT', 'args': ('lf', 3), 'value': 1420}
+new keys to be solved: ['lk', 'lj']
+lk {'op': 'AND', 'args': ('lh', 'li'), 'value': 256}
+lj {'op': 'OR', 'args': ('lh', 'li'), 'value': 1519}
+new keys to be solved: ['ll']
+ll {'op': 'NOT', 'args': ('lk',), 'value': 255}
+new keys to be solved: ['lm']
+lm {'op': 'AND', 'args': ('lj', 'll'), 'value': 239}
+new keys to be solved: ['ln', 'lo']
+ln {'op': 'OR', 'args': ('lg', 'lm'), 'value': 3071}
+lo {'op': 'AND', 'args': ('lg', 'lm'), 'value': 8}
+new keys to be solved: ['lp']
+lp {'op': 'NOT', 'args': ('lo',), 'value': 7}
+new keys to be solved: ['lq']
+lq {'op': 'AND', 'args': ('ln', 'lp'), 'value': 7}
+new keys to be solved: ['lr', 'ls']
+lr {'op': 'OR', 'args': ('lf', 'lq'), 'value': 11367}
+ls {'op': 'AND', 'args': ('lf', 'lq'), 'value': 1}
+new keys to be solved: ['lt']
+lt {'op': 'NOT', 'args': ('ls',), 'value': 0}
+new keys to be solved: ['lu']
+lu {'op': 'AND', 'args': ('lr', 'lt'), 'value': 0}
+new keys to be solved: ['lv']
+lv {'op': 'AND', 'args': (1, 'lu'), 'value': 0}
+new keys to be solved: ['lz', 'lx']
+lz {'op': 'LSHIFT', 'args': ('lv', 15), 'value': 0}
+lx {'op': 'OR', 'args': ('lw', 'lv'), 'value': 3176}
+new keys to be solved: ['a', 'ma']
+a {'op': 'EQ', 'args': ('lx',), 'value': 3176}
+ma {'op': 'OR', 'args': ('ly', 'lz'), 'value': 5680}
+no new keys can be solved, breaking loop...
