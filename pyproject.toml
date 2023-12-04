@@ -1,0 +1,81 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "advent_of_code"
+dynamic = ["version"]
+description = "Workspace for adventofcode.com challenges"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Jonas W. Carson", email = "jonas0226@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/seldonPlan/advent_of_code#readme"
+Issues = "https://github.com/seldonPlan/advent_of_code/issues"
+Source = "https://github.com/seldonPlan/advent_of_code"
+
+[tool.hatch.version]
+path = "src/aoc_manager/__about__.py"
+
+[tool.hatch.envs.challenges]
+template = "challenges"
+detached = true
+skip-install = true
+description = """
+primary env for challenges. minimal dependencies
+"""
+dependencies = []
+
+[tool.hatch.envs.challenges.scripts]
+display = "echo {env_name} {root}"
+# args should be a path to a directory containing a solution.py file
+run = "cd {args} && [ -f solution.py ] && python -B solution.py || echo '{args}/solution.py not found'"
+
+[tool.hatch.envs.manager]
+template = "manager"
+detached = true
+skip-install = true
+description = """
+used to manage challenges. can be used to:
+  - setup directory structure
+  - apply template files to new challenge
+  - fetch challenge descriptions and input
+  - submit challenge answers
+"""
+dependencies = [
+  "markdownify",
+  "requests",
+  "click",
+  "types-click",
+  "types-requests",
+  "types-beautifulsoup4",
+]
+
+[tool.hatch.envs.manager.scripts]
+display = "echo {env_name} {root}"
+
+[tool.ruff]
+line-length = 120
+force-exclude = true
+exclude = [".virtualenvs", ".venv", ".mypy_cache"]
+select = ["C","E","F","W","B","B9"]
+# extend-ignore = ["E203","E501","W503","W605"]
+
+[tool.ruff.lint.mccabe]
+# Flag errors (`C901`) whenever the complexity level exceeds 5.
+max-complexity = 5

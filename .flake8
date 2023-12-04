@@ -1,8 +1,0 @@
-[flake8]
-# https://black.readthedocs.io/en/stable/compatible_configs.html#flake8
-max-line-length = 160
-extend-ignore = E203,E501,W503,W605
-max-complexity = 12
-# enables bug-bear opinionated warnings
-# https://github.com/PyCQA/flake8-bugbear
-select = C,E,F,W,B,B9
