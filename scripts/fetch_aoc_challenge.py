@@ -6,9 +6,9 @@ from typing import TypedDict
 import requests
 from markdownify import markdownify
 
-CHALLENGE_YEAR = 2021
-CHALLENGE_DAY = 1
-CHALLENGE_PART = "a"
+CHALLENGE_YEAR = 2024
+CHALLENGE_DAY = 3
+CHALLENGE_PART = "b"
 
 session: str | None = None
 meta_path: Path = Path(__file__).parent.parent.joinpath("meta")
@@ -89,6 +89,9 @@ def set_session():
 
 
 def write_file(path: Path, content: str):
+    if content is None:
+        content = ""
+
     with open(path, "wt") as file:
         file.write(content)
 

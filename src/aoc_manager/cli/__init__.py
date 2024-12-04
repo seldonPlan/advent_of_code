@@ -1,6 +1,4 @@
 import click
-from bs4 import BeautifulSoup
-import requests
 from aoc_manager.__about__ import __version__
 
 

@@ -10,9 +10,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
 keywords = []
-authors = [
-  { name = "Jonas W. Carson", email = "jonas0226@gmail.com" },
-]
+authors = [{ name = "Jonas W. Carson", email = "jonas0226@gmail.com" }]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Programming Language :: Python",
@@ -72,10 +70,39 @@ display = "echo {env_name} {root}"
 [tool.ruff]
 line-length = 120
 force-exclude = true
-exclude = [".virtualenvs", ".venv", ".mypy_cache"]
-select = ["C","E","F","W","B","B9"]
+respect-gitignore = true
+exclude = [".virtualenvs", ".venv", ".mypy_cache", "**/lib/python*"]
+select = [
+  "A",
+  "ARG",
+  "B",
+  "C",
+  "DTZ",
+  "E",
+  "EM",
+  "F",
+  "FBT",
+  "I",
+  "ICN",
+  "ISC",
+  "N",
+  "PLC",
+  "PLE",
+  "PLR",
+  "PLW",
+  "Q",
+  "RUF",
+  "S",
+  "T",
+  "TID",
+  "W",
+  "YTT",
+]
 # extend-ignore = ["E203","E501","W503","W605"]
 
 [tool.ruff.lint.mccabe]
 # Flag errors (`C901`) whenever the complexity level exceeds 5.
 max-complexity = 5
+
+[[tool.mypy.overrides]]
+disable_error_code = ["literal-required"]
