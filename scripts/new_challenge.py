@@ -58,3 +58,4 @@ if __name__ == "__main__":
     print(next_open_slot(Path(__file__).parent.parent.joinpath("revival-of-code").joinpath("2015")))
     print(next_open_slot(Path(__file__).parent.parent.joinpath("2023")))
     print(next_open_slot(Path(__file__).parent.parent.joinpath("2021")))
+    print(next_open_slot(Path(__file__).parent.parent.joinpath("2024")))

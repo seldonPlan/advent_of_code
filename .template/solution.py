@@ -12,8 +12,8 @@ def parse_input(filename: str = "input.txt") -> List[Any]:
 
 input = parse_input()
 
-with open("result.txt", mode="wt") as result:
-    result.write(str(""))
-
 with open("output.txt", mode="wt") as outfile:
     outfile.write(str(""))
+
+with open("result.txt", mode="wt") as resultfile:
+    resultfile.write(str(""))
