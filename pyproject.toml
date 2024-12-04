@@ -7,15 +7,13 @@ name = "advent_of_code"
 dynamic = ["version"]
 description = "Workspace for adventofcode.com challenges"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 license = "MIT"
 keywords = []
 authors = [{ name = "Jonas W. Carson", email = "jonas0226@gmail.com" }]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Programming Language :: Python",
-  "Programming Language :: Python :: 3.10",
-  "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
@@ -42,7 +40,7 @@ dependencies = []
 [tool.hatch.envs.challenges.scripts]
 display = "echo {env_name} {root}"
 # args should be a path to a directory containing a solution.py file
-run = "cd {args} && [ -f solution.py ] && python -B solution.py || echo '{args}/solution.py not found'"
+run = "cd {args} && python -B solution.py"
 
 [tool.hatch.envs.manager]
 template = "manager"

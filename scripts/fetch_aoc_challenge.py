@@ -7,8 +7,8 @@ import requests
 from markdownify import markdownify
 
 CHALLENGE_YEAR = 2024
-CHALLENGE_DAY = 2
-CHALLENGE_PART = "b"
+CHALLENGE_DAY = 4
+CHALLENGE_PART = "a"
 
 session: str | None = None
 meta_path: Path = Path(__file__).parent.parent.joinpath("meta")
