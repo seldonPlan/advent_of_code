@@ -7,7 +7,7 @@ import requests
 from markdownify import markdownify
 
 CHALLENGE_YEAR = 2024
-CHALLENGE_DAY = 4
+CHALLENGE_DAY = 5
 CHALLENGE_PART = "a"
 
 session: str | None = None

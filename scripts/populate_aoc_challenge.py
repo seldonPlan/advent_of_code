@@ -2,13 +2,16 @@ from pathlib import Path
 from shutil import copy
 
 CHALLENGE_YEAR = 2024
-CHALLENGE_DAY = 2
-CHALLENGE_PART = "b"
+CHALLENGE_DAY = 5
+CHALLENGE_PART = "a"
 
 root_path: Path = Path(__file__).parent.parent
 meta_path: Path = root_path.joinpath("meta")
+challenges_path: Path = root_path.joinpath("challenges")
 tmpl_path: Path = root_path.joinpath(".template")
-tgt_path: Path = Path(root_path / f"{CHALLENGE_YEAR}/{CHALLENGE_DAY:02}/{CHALLENGE_PART}")
+tgt_path: Path = Path(challenges_path / f"{CHALLENGE_YEAR}/{CHALLENGE_DAY:02}/{CHALLENGE_PART}")
+
+tgt_path.mkdir(parents=True, exist_ok=True)
 
 
 def copy_file(src_file: Path, tgt_file: Path):
