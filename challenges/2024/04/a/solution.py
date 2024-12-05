@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import Any, List, Literal
 
 
-def parse_input(filename: str = "input.example.txt") -> List[Any]:
+def parse_input(filename: str = "input.txt") -> List[Any]:
     rv: List[Any] = []
     with open(filename, mode="rt") as inputfile:
         for line in inputfile:
