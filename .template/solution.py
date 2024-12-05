@@ -1,16 +1,17 @@
+from pathlib import Path
 from typing import Any, List
 
 
 def parse_input(filename: str = "input.txt") -> List[Any]:
     rv: List[Any] = []
-    with open(filename, mode="rt") as inputfile:
+    with open(Path(__file__).parent.joinpath(filename), mode="rt") as inputfile:
         for line in inputfile:
             rv.append(line.strip())
 
     return rv
 
 
-input = parse_input()
+data = parse_input()
 
 with open("output.txt", mode="wt") as outfile:
     outfile.write(str(""))
