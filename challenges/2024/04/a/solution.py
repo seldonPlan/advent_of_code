@@ -43,7 +43,7 @@ def diagonals(entries: list[list[str]], direction: Literal["upward"] | Literal["
         run = [entries[curr_x][curr_y]]
         while True:
             try:
-                # x coord depends on the diagonal direction
+                # next coord depends on the diagonal direction
                 if direction == "upward":
                     curr_x, curr_y = (curr_x - 1, curr_y + 1)
 
