@@ -96,7 +96,7 @@ select = [
   "W",
   "YTT",
 ]
-extend-ignore = ["E203", "E501", "W605", "C901"]
+extend-ignore = ["E203", "EM101", "E501", "W605", "C901"]
 
 [tool.ruff.lint.mccabe]
 # Flag errors (`C901`) whenever the complexity level exceeds 5.
