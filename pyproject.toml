@@ -96,7 +96,14 @@ select = [
   "W",
   "YTT",
 ]
-extend-ignore = ["E203", "EM101", "E501", "W605", "C901"]
+extend-ignore = [
+  "E203",     # whitespace before punctuation
+  "EM101",    # raw string in exception
+  "E501",     # line too long (black already handles this)
+  # "W605",   # invalid escape sequences
+  "C901",     # cyclomatic complexity
+  "T201",     # print statements
+]
 
 [tool.ruff.lint.mccabe]
 # Flag errors (`C901`) whenever the complexity level exceeds 5.
