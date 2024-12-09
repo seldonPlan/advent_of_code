@@ -1,0 +1,42 @@
+0 ItemId(id=0, size=2, spacing=3)
+1 ItemId(id=0, size=2, spacing=3)
+2 ItemId(id=9, size=2, spacing=0)
+3 ItemId(id=9, size=2, spacing=0)
+4 ItemId(id=8, size=4, spacing=0)
+5 ItemId(id=1, size=3, spacing=3)
+6 ItemId(id=1, size=3, spacing=3)
+7 ItemId(id=1, size=3, spacing=3)
+8 ItemId(id=8, size=4, spacing=0)
+9 ItemId(id=8, size=4, spacing=0)
+10 ItemId(id=8, size=4, spacing=0)
+11 ItemId(id=2, size=1, spacing=3)
+12 ItemId(id=7, size=3, spacing=1)
+13 ItemId(id=7, size=3, spacing=1)
+14 ItemId(id=7, size=3, spacing=1)
+15 ItemId(id=3, size=3, spacing=1)
+16 ItemId(id=3, size=3, spacing=1)
+17 ItemId(id=3, size=3, spacing=1)
+18 ItemId(id=6, size=4, spacing=1)
+19 ItemId(id=4, size=2, spacing=1)
+20 ItemId(id=4, size=2, spacing=1)
+21 ItemId(id=6, size=4, spacing=1)
+22 ItemId(id=5, size=4, spacing=1)
+23 ItemId(id=5, size=4, spacing=1)
+24 ItemId(id=5, size=4, spacing=1)
+25 ItemId(id=5, size=4, spacing=1)
+26 ItemId(id=6, size=4, spacing=1)
+27 ItemId(id=6, size=4, spacing=1)
+28 .
+29 .
+30 .
+31 .
+32 .
+33 .
+34 .
+35 .
+36 .
+37 .
+38 .
+39 .
+40 .
+41 .
