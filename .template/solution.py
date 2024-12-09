@@ -1,9 +1,9 @@
 from pathlib import Path
-from typing import Any, List
+from typing import Any
 
 
-def parse_input(filename: str = "input.txt") -> List[Any]:
-    rv: List[Any] = []
+def parse_input(filename: str = "input.txt") -> list[Any]:
+    rv: list[Any] = []
     with open(Path(__file__).parent.joinpath(filename), mode="rt") as inputfile:
         for line in inputfile:
             rv.append(line.strip())
