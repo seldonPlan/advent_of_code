@@ -1,4 +1,4 @@
-from collections import deque, namedtuple
+from collections import namedtuple
 from pathlib import Path
 from typing import Any, Literal
 
@@ -21,7 +21,6 @@ def make_pairs(source: list[str]):
 ItemId = namedtuple("ItemId", ["id", "size", "spacing"])
 
 data = parse_input("input.txt")
-# print(data, list(make_pairs(data)), sep="\n")
 
 
 class ItemWalker:
@@ -52,15 +51,6 @@ class ItemWalker:
             space_coords = self.next_space_candidate(item.size)
 
             if len(space_coords) == len(item_coords) and max(space_coords) < min(item_coords):
-                # print(
-                #     "candidate item ",
-                #     item,
-                #     " | right side item coords ",
-                #     item_coords,
-                #     " | left side space coords ",
-                #     space_coords,
-                #     sep="",
-                # )
                 self.swap(space_coords, item_coords)
 
             if item.id == 0:
