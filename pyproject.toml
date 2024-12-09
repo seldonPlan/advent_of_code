@@ -103,6 +103,7 @@ extend-ignore = [
   # "W605",   # invalid escape sequences
   "C901",     # cyclomatic complexity
   "T201",     # print statements
+  "S101",     # assert statements
 ]
 
 [tool.ruff.lint.mccabe]
